@@ -15,15 +15,13 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     
     private var lastUpdateTime : TimeInterval = 0
-    private var marioSprite : SKSpriteNode?
+    private var marioSprite : MarioSprite?
     
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
         
-        marioSprite = SKSpriteNode(imageNamed: "mario.png")
-        marioSprite?.physicsBody = SKPhysicsBody(texture: (marioSprite?.texture)!, size: (marioSprite?.texture!.size())!)
-        marioSprite?.physicsBody?.usesPreciseCollisionDetection = true
+        marioSprite = MarioSprite()
         self.addChild((marioSprite)!)
         
         let ground = SKShapeNode()
@@ -39,8 +37,7 @@ class GameScene: SKScene {
     
     
     func touchDown(atPoint pos : CGPoint) {
-        marioSprite?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 500))
-        print("Touch down")
+        marioSprite?.jump()
     }
     
     func touchMoved(toPoint pos : CGPoint) {
@@ -51,7 +48,7 @@ class GameScene: SKScene {
 
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {        
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
