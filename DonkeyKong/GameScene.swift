@@ -16,10 +16,15 @@ class GameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     private var marioSprite : MarioSprite?
+    private var leftArrow : SKShapeNode?
+    private var rightArrow : SKShapeNode?
     
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
+        
+        leftArrow = self.childNode(withName: "//leftArrow") as? SKShapeNode
+        rightArrow = self.childNode(withName: "//rightArrow") as? SKShapeNode
         
         marioSprite = MarioSprite()
         self.addChild((marioSprite)!)
@@ -37,7 +42,13 @@ class GameScene: SKScene {
     
     
     func touchDown(atPoint pos : CGPoint) {
-        marioSprite?.jump()
+        if (marioSprite?.contains(pos))! {
+            marioSprite?.jump()
+        } else if (leftArrow?.contains(pos))! {
+            marioSprite?.physicsBody?.applyImpulse(CGVector(dx: -200, dy: 0))
+        } else if (rightArrow?.contains(pos))! {
+            marioSprite?.physicsBody?.applyImpulse(CGVector(dx: 200, dy: 0))
+        }
     }
     
     func touchMoved(toPoint pos : CGPoint) {
