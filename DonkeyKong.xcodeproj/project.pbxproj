@@ -18,6 +18,7 @@
 		968ECDC02358D92E0029A1A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968ECDBE2358D92E0029A1A9 /* LaunchScreen.storyboard */; };
 		968ECDCB2358D92E0029A1A9 /* DonkeyKongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968ECDCA2358D92E0029A1A9 /* DonkeyKongTests.swift */; };
 		968ECDD62358D92E0029A1A9 /* DonkeyKongUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968ECDD52358D92E0029A1A9 /* DonkeyKongUITests.swift */; };
+		96969402240ED72500A266AB /* BlockSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96969401240ED72500A266AB /* BlockSprite.swift */; };
 		9699281223FD9DE9008DB379 /* MarioSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9699281123FD9DE9008DB379 /* MarioSprite.swift */; };
 		96AB30572399D271006B2AAA /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AB30562399D271006B2AAA /* Player.swift */; };
 		96AB30592399D339006B2AAA /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AB30582399D339006B2AAA /* Entity.swift */; };
@@ -59,6 +60,7 @@
 		968ECDD12358D92E0029A1A9 /* DonkeyKongUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DonkeyKongUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		968ECDD52358D92E0029A1A9 /* DonkeyKongUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonkeyKongUITests.swift; sourceTree = "<group>"; };
 		968ECDD72358D92E0029A1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96969401240ED72500A266AB /* BlockSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockSprite.swift; sourceTree = "<group>"; };
 		9699281123FD9DE9008DB379 /* MarioSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarioSprite.swift; sourceTree = "<group>"; };
 		96AB30562399D271006B2AAA /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		96AB30582399D339006B2AAA /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				967C604D23FD8A4E00E14ED4 /* mario.png */,
 				96AB30582399D339006B2AAA /* Entity.swift */,
 				96AB305A2399D37D006B2AAA /* Enemy.swift */,
+				96969401240ED72500A266AB /* BlockSprite.swift */,
 				968ECDAF2358D92E0029A1A9 /* AppDelegate.swift */,
 				96AB30562399D271006B2AAA /* Player.swift */,
 				968ECDB12358D92E0029A1A9 /* GameScene.sks */,
@@ -300,6 +303,7 @@
 				968ECDB82358D92E0029A1A9 /* GameViewController.swift in Sources */,
 				96AB30572399D271006B2AAA /* Player.swift in Sources */,
 				9699281223FD9DE9008DB379 /* MarioSprite.swift in Sources */,
+				96969402240ED72500A266AB /* BlockSprite.swift in Sources */,
 				968ECDB02358D92E0029A1A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

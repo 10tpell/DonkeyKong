@@ -16,6 +16,7 @@ class GameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     private var marioSprite : MarioSprite?
+    private var blockSprite : BlockSprite?
     private var leftArrow : SKShapeNode?
     private var rightArrow : SKShapeNode?
     
@@ -26,8 +27,21 @@ class GameScene: SKScene {
         leftArrow = self.childNode(withName: "//leftArrow") as? SKShapeNode
         rightArrow = self.childNode(withName: "//rightArrow") as? SKShapeNode
         
-        marioSprite = MarioSprite()
+        marioSprite = MarioSprite(x: frame.midX, y: frame.midY)
         self.addChild((marioSprite)!)
+        
+        let solidBlock = SKShapeNode()
+        solidBlock.path = UIBezierPath(roundedRect: CGRect(x: frame.midX, y: frame.midY - 520, width: 50, height: 50), cornerRadius: 1).cgPath
+        solidBlock.position = CGPoint(x: frame.midX, y: frame.midY)
+        solidBlock.fillColor = UIColor.brown
+        solidBlock.lineWidth = 7
+        solidBlock.physicsBody = SKPhysicsBody(edgeChainFrom: solidBlock.path!)
+        solidBlock.physicsBody?.restitution = 0.4
+        solidBlock.physicsBody?.isDynamic = false
+        self.addChild(solidBlock)
+        
+        blockSprite = BlockSprite(x: frame.midX + 50, y: frame.midY - 520)
+        self.addChild(blockSprite!)
         
         let ground = SKShapeNode()
         ground.path = UIBezierPath(roundedRect: CGRect(x: frame.minX, y: 0, width: frame.maxX * 2, height: 20), cornerRadius: 1).cgPath
@@ -45,9 +59,9 @@ class GameScene: SKScene {
         if (marioSprite?.contains(pos))! {
             marioSprite?.jump()
         } else if (leftArrow?.contains(pos))! {
-            marioSprite?.physicsBody?.applyImpulse(CGVector(dx: -200, dy: 0))
+            marioSprite?.physicsBody?.applyImpulse(CGVector(dx: -20, dy: 0))
         } else if (rightArrow?.contains(pos))! {
-            marioSprite?.physicsBody?.applyImpulse(CGVector(dx: 200, dy: 0))
+            marioSprite?.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 0))
         }
     }
     

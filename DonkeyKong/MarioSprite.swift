@@ -12,12 +12,14 @@ import SpriteKit
 class MarioSprite : SKSpriteNode {
     private var jumpCount = 0
     
-    init() {
+    init(x: CGFloat, y: CGFloat) {
         let texture = SKTexture(imageNamed: "mario.png")
         super.init(texture: texture, color: UIColor.clear, size: texture.size())
-        
-        self.physicsBody = SKPhysicsBody(texture: (self.texture)!, size: (self.texture!.size()))
+        self.scale(to: CGSize(width: 100, height: 100))
+        self.position = CGPoint(x: x, y: y)
+        self.physicsBody = SKPhysicsBody(texture: (self.texture)!, size: CGSize(width: CGFloat(100.0), height: CGFloat(100.0)))
         self.physicsBody?.usesPreciseCollisionDetection = true
+        self.physicsBody?.allowsRotation = false
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,10 +33,10 @@ class MarioSprite : SKSpriteNode {
             jumpCount = 0
         }
         if (jumpCount == 0 && (self.physicsBody?.velocity.dy)! >= CGFloat(0)) {
-            self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 1500))
+            self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 200))
             jumpCount += 1
         } else if (jumpCount == 1 && (self.physicsBody?.velocity.dy)! >= CGFloat(0)) {
-            self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 750))
+            self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100))
             jumpCount += 1
         }
     }
