@@ -40,8 +40,9 @@ class GameScene: SKScene {
         solidBlock.physicsBody?.isDynamic = false
         self.addChild(solidBlock)
         
-        blockSprite = BlockSprite(x: frame.midX + 50, y: frame.midY - 520)
+        blockSprite = BlockSprite(x: frame.midX + 50, y: frame.midY - 520, imageNamed: "brickBlock.png")
         self.addChild(blockSprite!)
+		
         
         let ground = SKShapeNode()
         ground.path = UIBezierPath(roundedRect: CGRect(x: frame.minX, y: 0, width: frame.maxX * 2, height: 20), cornerRadius: 1).cgPath
